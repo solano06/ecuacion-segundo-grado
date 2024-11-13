@@ -1,19 +1,53 @@
+#include<stdio.h>
+#include<math.h>
 
-    if (disc>0)
-    {
-        resultado1 = (-b+sqrt(disc))/(2*a);
-        resultado2 = (-b-sqrt(disc))/(2*a);
+void fRaices(float a, float b, float c);
 
-        printf("Hay dos soluciones:\nSolucion 1 = %.4f\nSolucion 2 = %.4f", resultado1, resultado2);
-    }
-    if (disc==0)
+int main()
+{
+    float a, b, c;
+
+    printf("a:");
+    scanf("%f", &a);
+    printf("b:");
+    scanf("%f", &b);
+    printf("c:");
+    scanf("%f", &c);
+
+    fRaices(a, b, c);
+    return 0;
+}
+
+void fRaices(float a, float b, float c)
+{
+    float resultado1, resultado2, disc, real, ima;
+
+    disc =pow(b,2)-4*a*c;
+
+    if(a==0)
     {
-        resultado1 = (-b)/(2*a);
-        printf("Hay una solucion unica: %.4f", resultado1);
+        resultado1 = c/b;
+        printf("Hay una solucion: %.4f", resultado1);
+    }else{
+
+        if (disc>0)
+        {
+            resultado1 = (-b+sqrt(disc))/(2*a);
+            resultado2 = (-b-sqrt(disc))/(2*a);
+
+            printf("Hay dos soluciones:\nSolucion 1 = %.4f\nSolucion 2 = %.4f", resultado1, resultado2);
+        }
+        if (disc==0)
+        {
+            resultado1 = (-b)/(2*a);
+            printf("Hay una solucion unica: %.4f", resultado1);
+        }
+        if (disc<0)
+        {
+            ima = 4*a*c-pow(b,2);
+            real = -b/(2*a);
+            printf("Hay dos soluciones: \nSolucion 1 = %.4f + %.4fi\nSolucion 2 = %.4f - %.4fi", real, ima, real, ima);
+        }
     }
-    if (disc<0)
-    {
-        ima = 4*a*c-pow(b,2);
-        real = -b/(2*a);
-        printf("Hay dos soluciones: \nSolucion 1 = %.4f + %.4fi\nSolucion 2 = %.4f - %.4fi", real, ima, real, ima);
-    }
+
+}
