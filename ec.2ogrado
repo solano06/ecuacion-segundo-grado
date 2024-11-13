@@ -1,0 +1,19 @@
+
+    if (disc>0)
+    {
+        resultado1 = (-b+sqrt(disc))/(2*a);
+        resultado2 = (-b-sqrt(disc))/(2*a);
+
+        printf("Hay dos soluciones:\nSolucion 1 = %.4f\nSolucion 2 = %.4f", resultado1, resultado2);
+    }
+    if (disc==0)
+    {
+        resultado1 = (-b)/(2*a);
+        printf("Hay una solucion unica: %.4f", resultado1);
+    }
+    if (disc<0)
+    {
+        ima = 4*a*c-pow(b,2);
+        real = -b/(2*a);
+        printf("Hay dos soluciones: \nSolucion 1 = %.4f + %.4fi\nSolucion 2 = %.4f - %.4fi", real, ima, real, ima);
+    }
